@@ -1,0 +1,25 @@
+class Main {
+    public static void main(String[] args) {
+        person = abc;
+        System.out.println("Name: " + person.getName());
+        System.out.println("Age: " + person.getAge());
+
+        Student student = new Student("Jane Smith", 20, "12345");
+        System.out.println("Name: " + student.getName());
+        System.out.println("Age: " + student.getAge());
+        System.out.println("Student ID: " + student.getStudentId());
+    }
+}
+
+class Student extends Person {
+    String studentId;
+
+    public Student(String name, int age, String studentId) {
+        super(name, age);
+        this.studentId = studentId;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+}
