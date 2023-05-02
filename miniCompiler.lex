@@ -4,6 +4,11 @@
 #include <string.h>
 #include <math.h>
 #include "miniCompiler.tab.h"
+
+extern char nom[];
+extern int numval;
+extern int boolval;
+
 %}
 
 %option yylineno
@@ -29,8 +34,8 @@ error_identifier                {number}({letter}|{number}|"_")*
 
 %%
 
-{integer_literal}  {return Integer_Literal;}
-{boolean_literal}   {return Boolean_Literal;}
+{integer_literal}  {numval = atoi(yytext);return Integer_Literal;}
+{boolean_literal}    {if(strcmp(yytext, "true") == 0) boolval = 1; else boolval=0; return  Boolean_Literal;}
 {parenthese_open}	  {return open_parenthese ;}
 {parenthese_close}  {return closed_parenthese;}
 {bracket_open}	{return open_bracket;}
@@ -45,7 +50,7 @@ error_identifier                {number}({letter}|{number}|"_")*
 "public"                              return public_keyword;
 "static void main"                    return main_class_keyword;
 "extends"                             return extends_keyword;
-"{return"                             return return_keyword;
+"return"                             return return_keyword;
 "if"                                  return if_keyword;
 "else"                                return else_keyword;
 "while"                               return whileloop_keyword;
@@ -72,7 +77,8 @@ error_identifier                {number}({letter}|{number}|"_")*
 ";"                                   return SEMI_COLON;
 "."                                   return DOT;
 ","                                   return COMMA;
-{identifier}	  			return Ident ;
+{identifier}	  			{strcpy(nom, yytext); return  Ident;}
+{error_identifier}			 {fprintf(stderr,"illegal identifier \'%s\' on line :%d\n",yytext,yylineno); exit(0);}
 
 %%
 
