@@ -1,0 +1,25 @@
+/* ===========================================================
+  CECI EST UN COMMENTAIRE qui prendra fin a la prochaine
+  accolade fermante
+
+  TP1 - ift2030 - automne 2002
+  ============================================================ */
+
+
+class Factorial{
+    public static void main(String[] a){
+	 int x;
+	 int y;
+	 /*Arithmetic Test*/
+	 x = 5 + 2;
+	 y = 2 * 3;
+	 /*Condition test*/
+	 if ( x < y )  x = y ;else y = x;
+	 /*While test*/
+	 while ( y < x ) y = y + 1 ;
+    }
+}
+  
+
+/* =================================================
+   ==================================================== */

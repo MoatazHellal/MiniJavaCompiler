@@ -1,0 +1,18 @@
+.navbar {
+    background-color:#191C24;
+  
+    top: 0;
+  
+   
+
+  }
+
+  /* Change the color of the links in the navbar */
+  .navbar a {
+    color: #fff;
+  }
+
+  /* Change the color of the links in the navbar on hover */
+  .navbar a:hover {
+    color: #f1f1f1;
+  }
