@@ -14,18 +14,15 @@ ENTREE_CODE tabCodeInt[5000];
 
 ENTREE_CODE creerCode(const char *code, int op, char *nom_fonc)
 {
-    ENTREE_CODE ent;
-    ent.code_op = (char *)malloc(strlen(code) + 2);
-    strcpy(ent.code_op, code);
+    ENTREE_CODE entree;
+    entree.code_op = (char *)malloc(strlen(code) + 2);
+    strcpy(entree.code_op, code);
     if (nom_fonc != NULL)
     {
-        // ent.nom_fonc = (char *)malloc(strlen(nom_fonc)+2);
-        strcpy(ent.nom_fonc, nom_fonc);
+        strcpy(entree.nom_fonc, nom_fonc);
     }
-
-    ent.operande = op;
-
-    return ent;
+    entree.operande = op;
+    return entree;
 }
 
 int getFonctionLine(const char *nom_fonc)
@@ -48,10 +45,6 @@ int getFonctionLine(const char *nom_fonc)
 void genererCode()
 {
     FILE *file = fopen("E:\\GnuWin32\\bin\\Generator.txt","w");
-    if (!file)
-    {
-        printf("Error: Could not open file.");
-    }
     for (int f = 0; f < indextab; f++)
     {
         fprintf(file, "%s ", tabCodeInt[f].code_op);

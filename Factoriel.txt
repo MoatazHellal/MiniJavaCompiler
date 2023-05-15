@@ -7,22 +7,24 @@
 
 
 class Factorial{
+	public hello(){
+	return 0}
     public static void main(String[] a){
-        int b;
+        System.out.println(a);
+	 int x;
+	 int y;
+	 /*Arithmetic Test*/
+	 x = 5 + 2;
+	 y = 2 * 3;
+	 /*Condition test*/
+	 if ( x > y ) then x = y else y = x;
+	 /*While test*/
+	 while ( y < x ) y = y + 1 ;
+	 /*Function Call test*/
+	 x = hello();
     }
 }
 
 /* ====================================================
    Classe Fac
    ==================================================== */
-
-class Fac {
-    public int ComputeFac(int num){
-        int num_aux ;
-        if (num < 1)
-            num_aux = 1 ;
-        else
-            num_aux = num * 5; /*mechant programme n'est pas ? */
-        return num_aux ;
-    }
-}
